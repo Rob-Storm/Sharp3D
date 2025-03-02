@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GameDir>C:\Users\The1Wolfcast\source\Sharp3D\Sharp3D\Sharp3DGame\bin\Debug\net8.0\</GameDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImGui.NET" Version="1.91.6.1" />
+    <PackageReference Include="ini-parser" Version="2.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="OpenTK" Version="4.9.3" />
+    <PackageReference Include="StbImageSharp" Version="2.30.15" />
+
+    <None Include="Resources\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /E /I /Y &quot;$(ProjectDir)Config&quot; &quot;$(GameDir)Config&quot;&#xD;&#xA;xcopy /E /I /Y &quot;$(ProjectDir)Resources&quot; &quot;$(GameDir)Resources&quot;" />
+  </Target>
+
+</Project>

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{E56EBA88-AA9F-4B49-9365-E029C06CE6C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{65A94DFA-684F-41BB-AA75-C8B5369C75BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{2E538B8D-B2AD-4DC7-B2DD-FB7C09B5480F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldEdit", "Engine\Tools\WorldEdit\WorldEdit.csproj", "{7C2126E2-BA0B-E145-D248-A34EA0F7919F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp3D", "Engine\Core\Engine\Sharp3D.csproj", "{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3DGame", "Sharp3DGame\S3DGame.csproj", "{078BAE6D-E266-4A8C-8C9F-3A0819F02554}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C2126E2-BA0B-E145-D248-A34EA0F7919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2126E2-BA0B-E145-D248-A34EA0F7919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2126E2-BA0B-E145-D248-A34EA0F7919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2126E2-BA0B-E145-D248-A34EA0F7919F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{078BAE6D-E266-4A8C-8C9F-3A0819F02554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{078BAE6D-E266-4A8C-8C9F-3A0819F02554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{078BAE6D-E266-4A8C-8C9F-3A0819F02554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{078BAE6D-E266-4A8C-8C9F-3A0819F02554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E56EBA88-AA9F-4B49-9365-E029C06CE6C3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{65A94DFA-684F-41BB-AA75-C8B5369C75BA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7C2126E2-BA0B-E145-D248-A34EA0F7919F} = {E56EBA88-AA9F-4B49-9365-E029C06CE6C3}
+		{9447FCDD-1F37-E4CF-24C1-DC7CB8F1BC34} = {65A94DFA-684F-41BB-AA75-C8B5369C75BA}
+		{078BAE6D-E266-4A8C-8C9F-3A0819F02554} = {2E538B8D-B2AD-4DC7-B2DD-FB7C09B5480F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B99051B-4891-48B8-9250-F59341A4E9A7}
+	EndGlobalSection
+EndGlobal

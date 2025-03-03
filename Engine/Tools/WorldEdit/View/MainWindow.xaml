@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldEdit"
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
+        xmlns:userControls="clr-namespace:WorldEdit.View.UserControls"
         mc:Ignorable="d"
         Title="World Edit" Height="540" Width="960">
     <Grid>
@@ -64,102 +65,9 @@
             
             <!-- Viewports-->
 
-            <UniformGrid Grid.Column="1">
-                <Grid Grid.Column="0" Grid.Row="0">
-                    <glWpfControl:GLWpfControl
-                    x:Name="OpenTkControl"
-                    Render="OpenTkControl_OnRender">
-
-                        <glWpfControl:GLWpfControl.Settings>
-                            <glWpfControl:GLWpfControlSettings 
-                            MajorVersion="3" MinorVersion="3"/>
-                        </glWpfControl:GLWpfControl.Settings>
-
-                    </glWpfControl:GLWpfControl>
-                    <Border
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="2">
-                        <Label
-                                Background="Black"
-                                Foreground="White"
-                                Content="Camera"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center" />
-                    </Border>
-
-                </Grid>
-
-                <Grid>
-                    <glWpfControl:GLWpfControl>
-
-                        <glWpfControl:GLWpfControl.Settings>
-                            <glWpfControl:GLWpfControlSettings 
-                            MajorVersion="3" MinorVersion="3"/>
-                        </glWpfControl:GLWpfControl.Settings>
-
-                    </glWpfControl:GLWpfControl>
-                    <Border
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="2">
-                        <Label
-                                Background="Black"
-                                Foreground="White"
-                                Content="Top (X/Y)"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center" />
-                    </Border>
-
-                </Grid>
-
-
-                <Grid>
-                    <glWpfControl:GLWpfControl>
-
-                        <glWpfControl:GLWpfControl.Settings>
-                            <glWpfControl:GLWpfControlSettings 
-                            MajorVersion="3" MinorVersion="3"/>
-                        </glWpfControl:GLWpfControl.Settings>
-
-                    </glWpfControl:GLWpfControl>
-                    <Border
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="2">
-                        <Label
-                                Background="Black"
-                                Foreground="White"
-                                Content="Front (Y/Z)"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center" />
-                    </Border>
-
-                </Grid>
-
-
-                <Grid>
-                    <glWpfControl:GLWpfControl>
-
-                        <glWpfControl:GLWpfControl.Settings>
-                            <glWpfControl:GLWpfControlSettings 
-                            MajorVersion="3" MinorVersion="3"/>
-                        </glWpfControl:GLWpfControl.Settings>
-
-                    </glWpfControl:GLWpfControl>
-                    <Border
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="2">
-                        <Label
-                                Background="Black"
-                                Foreground="White"
-                                Content="Side (X/Z)"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center" />
-                    </Border>
-
-                </Grid>
+            <UniformGrid Grid.Column="1" Margin="1">
+                <userControls:GLViewport 
+                    x:Name="CameraViewport" ViewportLabel="Camera"/>
             </UniformGrid>
 
         </Grid>

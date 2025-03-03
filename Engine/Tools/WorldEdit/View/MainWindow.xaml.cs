@@ -9,25 +9,22 @@ namespace WorldEdit
 
         public MainWindow()
         {
-
             InitializeComponent();
 
-            OpenTkControl.Start();
+            CameraViewport.wpfControl.Start();
 
-            OpenTkControl.Focus();
-            Keyboard.Focus(OpenTkControl);
+            CameraViewport.Focus();
+            Keyboard.Focus(CameraViewport);
 
+            mainScene = new EditorScene(CameraViewport.wpfControl);
 
-            mainScene = new EditorScene(OpenTkControl);
+            CameraViewport.GLRender += CameraViewport_OnRender;
         }
 
-        private void OpenTkControl_OnRender(TimeSpan delta) // effectively the game loop
+        private void CameraViewport_OnRender(float delta)
         {
-            mainScene.Update((float)delta.TotalSeconds);
+            mainScene.Update(delta);
             mainScene.Render();
-
-            Keyboard.Focus(OpenTkControl);
         }
-
     }
 }

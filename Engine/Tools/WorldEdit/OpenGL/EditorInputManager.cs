@@ -4,6 +4,7 @@ using OpenTK.Wpf;
 using Sharp3D.Core;
 using System.Windows;
 using System.Windows.Input;
+using WorldEdit.Util;
 
 namespace WorldEdit.OpenGL
 {
@@ -83,13 +84,12 @@ namespace WorldEdit.OpenGL
             }
             else if(InputMode == InputMode.UI)
             {
-                if (Keyboard.IsKeyDown(Key.Z) && _wpfControl.IsMouseOver)
+                if (_pressedKeys.Contains(Key.Z) && _wpfControl.IsMouseOver)
                 {
-                    SetInputModeGame();
+                    SetInputModeGame(_wpfControl);
                     _pressedKeys.Remove(Key.Z);
                 }
             }
-
         }
 
         public void SetInputModeGame()
@@ -98,9 +98,20 @@ namespace WorldEdit.OpenGL
             _firstMove = true;
         }
 
+        public void SetInputModeGame(FrameworkElement control)
+        {
+            InputMode = InputMode.Game;
+            _firstMove = true;
+
+            //CursorHelper.WrapCursor(control);
+        }
+
+
         public void SetInputModeUI()
         {
             InputMode = InputMode.UI;
+
+            //CursorHelper.UnlockCursor();
         }
     }
 

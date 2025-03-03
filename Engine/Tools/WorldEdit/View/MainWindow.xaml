@@ -63,30 +63,104 @@
 
             
             <!-- Viewports-->
-            <Grid Grid.Column="1">
-                <glWpfControl:GLWpfControl
+
+            <UniformGrid Grid.Column="1">
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <glWpfControl:GLWpfControl
                     x:Name="OpenTkControl"
                     Render="OpenTkControl_OnRender">
 
-                    <glWpfControl:GLWpfControl.Settings>
-                        <glWpfControl:GLWpfControlSettings 
+                        <glWpfControl:GLWpfControl.Settings>
+                            <glWpfControl:GLWpfControlSettings 
                             MajorVersion="3" MinorVersion="3"/>
-                    </glWpfControl:GLWpfControl.Settings>
+                        </glWpfControl:GLWpfControl.Settings>
 
-                </glWpfControl:GLWpfControl>
+                    </glWpfControl:GLWpfControl>
                     <Border
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         BorderThickness="2">
-                            <Label
+                        <Label
                                 Background="Black"
                                 Foreground="White"
                                 Content="Camera"
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center" />
                     </Border>
-               
-            </Grid>
+
+                </Grid>
+
+                <Grid>
+                    <glWpfControl:GLWpfControl>
+
+                        <glWpfControl:GLWpfControl.Settings>
+                            <glWpfControl:GLWpfControlSettings 
+                            MajorVersion="3" MinorVersion="3"/>
+                        </glWpfControl:GLWpfControl.Settings>
+
+                    </glWpfControl:GLWpfControl>
+                    <Border
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="2">
+                        <Label
+                                Background="Black"
+                                Foreground="White"
+                                Content="Top (X/Y)"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center" />
+                    </Border>
+
+                </Grid>
+
+
+                <Grid>
+                    <glWpfControl:GLWpfControl>
+
+                        <glWpfControl:GLWpfControl.Settings>
+                            <glWpfControl:GLWpfControlSettings 
+                            MajorVersion="3" MinorVersion="3"/>
+                        </glWpfControl:GLWpfControl.Settings>
+
+                    </glWpfControl:GLWpfControl>
+                    <Border
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="2">
+                        <Label
+                                Background="Black"
+                                Foreground="White"
+                                Content="Front (Y/Z)"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center" />
+                    </Border>
+
+                </Grid>
+
+
+                <Grid>
+                    <glWpfControl:GLWpfControl>
+
+                        <glWpfControl:GLWpfControl.Settings>
+                            <glWpfControl:GLWpfControlSettings 
+                            MajorVersion="3" MinorVersion="3"/>
+                        </glWpfControl:GLWpfControl.Settings>
+
+                    </glWpfControl:GLWpfControl>
+                    <Border
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="2">
+                        <Label
+                                Background="Black"
+                                Foreground="White"
+                                Content="Side (X/Z)"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center" />
+                    </Border>
+
+                </Grid>
+            </UniformGrid>
 
         </Grid>
         

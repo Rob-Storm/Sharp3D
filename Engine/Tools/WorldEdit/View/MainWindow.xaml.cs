@@ -26,6 +26,7 @@ namespace WorldEdit
             mainScene.Update((float)delta.TotalSeconds);
             mainScene.Render();
 
+            Keyboard.Focus(OpenTkControl);
         }
 
     }

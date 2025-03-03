@@ -23,11 +23,9 @@ namespace Sharp3D.Graphics
             GL.DepthFunc(DepthFunction.Less);
 
             GL.PolygonMode(TriangleFace.FrontAndBack, PolygonMode.Fill);
-
-            ToggleWireframeMode();
         }
 
-        public void Render(VertexArray vertexArray, IndexBuffer indexBuffer, Shader shader, Camera camera, double elapsedTime)
+        public void Render(VertexArray vertexArray, IndexBuffer indexBuffer, Shader shader, Camera camera)
         {
             Matrix4 model = Matrix4.Identity;
 

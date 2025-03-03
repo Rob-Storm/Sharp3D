@@ -10,9 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Sharp3DIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resource\Sharp3DIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="MVVM\" />
     <Folder Include="Resource\Images\" />
     <Folder Include="Viewmodel\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Engine\Sharp3D.csproj" />
+    <ProjectReference Include="..\GLWpf\GLWpfControl.csproj" />
   </ItemGroup>
 </Project>

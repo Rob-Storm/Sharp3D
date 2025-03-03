@@ -1,4 +1,4 @@
-﻿namespace Sharp3D.Game
+﻿namespace Sharp3D.Input
 {
     public class PlayerController
     {

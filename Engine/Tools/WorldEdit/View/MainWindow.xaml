@@ -4,14 +4,92 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldEdit"
+        xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         mc:Ignorable="d"
         Title="World Edit" Height="540" Width="960">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Image Grid.Column="1" Name="Viewport" Stretch="Fill"/>
+        <!-- Menu Bar -->
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="New Map"/>
+                <MenuItem Header="Load File"/>
+                <MenuItem Header="Save"/>
+            </MenuItem>
+
+            <MenuItem Header="Tools">
+                <MenuItem Header="Texture Editor"/>
+            </MenuItem>
+        </Menu>
+        
+        <!-- Main Content -->
+        
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <GroupBox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Tools -->
+
+                    <Button Content="Select" Grid.Row="0"/>
+                    <Button Content="Brush" Grid.Row="2"/>
+                    <Button Content="Entity" Grid.Row="4"/>
+                    <Button Content="Texture" Grid.Row="6"/>
+                    <Button Content="Clipping" Grid.Row="8"/>
+                </Grid>
+            </GroupBox>
+
+            
+            <!-- Viewports-->
+            <Grid Grid.Column="1">
+                <glWpfControl:GLWpfControl
+                    x:Name="OpenTkControl"
+                    Render="OpenTkControl_OnRender">
+
+                    <glWpfControl:GLWpfControl.Settings>
+                        <glWpfControl:GLWpfControlSettings 
+                            MajorVersion="3" MinorVersion="3"/>
+                    </glWpfControl:GLWpfControl.Settings>
+
+                </glWpfControl:GLWpfControl>
+                    <Border
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="2">
+                            <Label
+                                Background="Black"
+                                Foreground="White"
+                                Content="Camera"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center" />
+                    </Border>
+               
+            </Grid>
+
+        </Grid>
+        
+
     </Grid>
 </Window>

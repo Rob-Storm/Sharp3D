@@ -6,12 +6,11 @@ using Sharp3D.GUI;
 using OpenTK.Windowing.Desktop;
 using ImGuiNET;
 
-namespace Sharp3D.Game
+namespace Sharp3D.Input
 {
     public class InputManager
     {
         private Camera _camera;
-        private bool _cursorLocked = true;
         private bool _firstMove = true;
         private Vector2 _lastPos;
         private NativeWindow _window;
@@ -30,7 +29,7 @@ namespace Sharp3D.Game
 
         public void ProcessInput(FrameEventArgs args, KeyboardState keyboardState, MouseState mouseState, ref bool cursorLocked, ref CursorState cursorState)
         {
-            const float cameraSpeed = 2.0f;
+            const float cameraSpeed = 5.0f;
             const float sensitivity = 0.2f;
 
             if(InputMode == InputMode.Game)

@@ -4,7 +4,7 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.Desktop;
-using Sharp3D.Game;
+using Sharp3D.Input;
 using Sharp3D.Graphics;
 using Sharp3D.GUI;
 
@@ -51,13 +51,13 @@ namespace Sharp3D.Core
             Renderer = new Renderer();
             World = new World();
 
-            var chunkData = World.GetChunkData();
+            var chunkData = World.GetBrushData();
 
             float[] vertexArrayData = chunkData.Item1;
             uint[] indexArrayData = chunkData.Item2;
 
             _shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
-            _texture = Texture.LoadFromFile("Resources/grass.png");
+            _texture = Texture.LoadFromFile("Resources/TextureAtlas.png");
 
             _shader.Bind();
             _texture.Use(TextureUnit.Texture0);
@@ -76,7 +76,7 @@ namespace Sharp3D.Core
 
             _vertexArray.AddBuffer(vertexBuffer, layout);
 
-            _camera = new Camera(new Vector3(16, 16, 16), Size.X / (float)Size.Y);
+            _camera = new Camera(new Vector3(8,8,8), Size.X / (float)Size.Y);
 
             Renderer.Load();
 
@@ -106,7 +106,7 @@ namespace Sharp3D.Core
         {
             base.OnRenderFrame(args);
 
-            Renderer.Render(_vertexArray, indexBuffer, _shader, _camera, _timer.Elapsed.TotalSeconds);
+            Renderer.Render(_vertexArray, indexBuffer, _shader, _camera);
             _uiManager.Render();
 
             SwapBuffers();

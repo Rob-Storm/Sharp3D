@@ -1,49 +1,57 @@
-﻿using Sharp3D.Data;
-using OpenTK.Mathematics;
+﻿using OpenTK.Mathematics;
+using Sharp3D.Data;
 
 namespace Sharp3D.Core
 {
     public class World
     {
-        public const int SIZE = 1;
-        public Chunk[,] Chunks;
-
+        public List<Brush> Brushes;
         public World()
         {
-            Chunks = new Chunk[SIZE, SIZE];
-
-            CreateChunks();
+            Brushes = new List<Brush>();
+            CreateBrushes();
         }
 
-        private void CreateChunks()
+        private void CreateBrushes()
         {
-            for (int w = 0; w < SIZE; w++)
+            Brushes.Add(new Brush(new Vector3(0,0,0), new Quaternion(0,0,0), new Vector3(1,10,10)));
+        }
+
+        public (float[], uint[]) GetBrushData()
+        {
+            List<float> allVertices = new List<float>();
+            List<uint> allIndices = new List<uint>();
+
+            uint vertexOffset = 0;
+
+            foreach (var brush in Brushes)
             {
-                for (int l = 0; l < SIZE; l++)
+                foreach (var vertex in brush.Vertices)
                 {
-                    Chunks[w, l] = new Chunk(new Vector3(w * Chunk.WIDTH, 0, l * Chunk.LENGTH));
-                    Debug.Log($"Created chunk {w + l}", LogLevel.Info);
+                    allVertices.Add(vertex.Position.X);
+                    allVertices.Add(vertex.Position.Y);
+                    allVertices.Add(vertex.Position.Z);
+
+                    allVertices.Add(vertex.TexCoord.X);
+                    allVertices.Add(vertex.TexCoord.Y);
+
+                    allVertices.Add(vertex.Normal.X);
+                    allVertices.Add(vertex.Normal.Y);
+                    allVertices.Add(vertex.Normal.Z);
                 }
-            }
-        }
 
-        public (float[], uint[]) GetChunkData()
-        {
-            List<float> verts = new List<float>();
-            List<uint> inds = new List<uint>();
+                foreach (var index in brush.Indices)
+                {
+                    allIndices.Add(index + vertexOffset);
+                }
 
-            foreach(Chunk chunk in Chunks)
-            {
-                var blockData = chunk.GetBlockData().ToTuple();
-
-                verts.AddRange(blockData.Item1);
-                inds.AddRange(blockData.Item2);
-
-                Debug.Log($"Chunk {chunk.Offset / Chunk.WIDTH},{chunk.Offset / Chunk.LENGTH} has {blockData.Item1.Count()} verices and {blockData.Item2.Count()} indices");
+                vertexOffset += 24;
             }
 
+            float[] vertexArrayData = allVertices.ToArray();
+            uint[] indexArrayData = allIndices.ToArray();
 
-            return (verts.ToArray(), inds.ToArray());
+            return (vertexArrayData, indexArrayData);
         }
     }
 }
